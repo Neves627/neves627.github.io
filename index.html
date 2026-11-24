@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diogo Neves — Software Developer</title>
+  <meta name="description" content="Personal portfolio of Diogo Neves (Neves627) — Software development, desktop applications, web interfaces, and digital tools." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            base: {
+              950: '#09090b',
+              900: '#0f0e13',
+              850: '#14131a',
+              800: '#1c1a24',
+            },
+            accent: {
+              DEFAULT: '#7c3aed',
+              bright: '#a855f7',
+              soft: '#c084fc',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #09090b;
+      color: #f4f4f5;
+      background-image:
+        radial-gradient(ellipse 70% 42% at 50% -8%, rgba(124, 58, 237, 0.22), transparent),
+        radial-gradient(circle at 90% 40%, rgba(168, 85, 247, 0.08), transparent 45%);
+    }
+
+    .hero-grid {
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+    }
+
+    .portfolio-card {
+      background: linear-gradient(180deg, rgba(20, 19, 26, 0.78) 0%, rgba(15, 14, 19, 0.95) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.14);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .portfolio-card:hover {
+      border-color: rgba(168, 85, 247, 0.45);
+      box-shadow: 0 14px 36px -14px rgba(124, 58, 237, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-violet-600/30 selection:text-violet-200">
+  <header class="sticky top-0 z-40 border-b border-white/[0.06] bg-base-950/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
+      <a href="#" class="group flex items-center gap-2.5 text-sm font-semibold tracking-tight text-white">
+        <span>Diogo Neves</span>
+      </a>
+
+      <nav aria-label="Main navigation" class="flex items-center gap-5 sm:gap-7 text-xs sm:text-sm font-medium text-zinc-400">
+        <a href="#about" class="transition-colors hover:text-white">About</a>
+        <a href="#projects" class="transition-colors hover:text-white">Projects</a>
+        <a href="#stack" class="transition-colors hover:text-white">Stack</a>
+        <a href="#contact" class="transition-colors hover:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden border-b border-white/[0.05] py-24 sm:py-32">
+      <div class="hero-grid pointer-events-none absolute inset-0"></div>
+
+      <div class="relative mx-auto max-w-5xl px-5 sm:px-8">
+        <div class="flex flex-col-reverse items-center justify-between gap-12 md:flex-row">
+          <div class="max-w-xl text-center md:text-left">
+            <h1 class="text-3xl font-bold tracking-tight text-white sm:text-5xl sm:leading-[1.15]">
+              Hi, I&apos;m <span class="bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">Diogo Neves</span> — Software Developer &amp; Digital Creator.
+            </h1>
+
+            <p class="mt-5 text-base leading-relaxed text-zinc-400 sm:text-lg">
+              I build desktop applications, minimalist web interfaces, and practical tools focused on simplicity, performance, and attention to detail.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-3.5 md:justify-start">
+              <a href="#projects"
+                 class="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-purple-500 active:scale-[0.99]">
+                <span>Explore Projects</span>
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+
+              <a href="https://github.com/Neves627" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-base-900/90 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-purple-500/45 hover:bg-base-800 hover:text-white">
+                <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+                <span>GitHub (@Neves627)</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative shrink-0">
+            <div class="absolute -inset-2 rounded-full bg-gradient-to-tr from-violet-600/35 to-fuchsia-500/20 blur-xl"></div>
+            <img
+              src="foto.png"
+              alt="Diogo Neves"
+              class="relative h-52 w-52 rounded-full border-2 border-purple-500/40 object-cover shadow-2xl shadow-violet-950/60 sm:h-64 sm:w-64"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal border-b border-white/[0.05] py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-5 sm:px-8">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-12">
+          <div class="md:col-span-4">
+            <p class="font-mono text-xs uppercase tracking-widest text-purple-400">01 // Profile</p>
+            <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-white">About Me</h2>
+          </div>
+
+          <div class="space-y-4 text-sm leading-relaxed text-zinc-400 sm:text-base md:col-span-8">
+            <p>
+              I am a developer passionate about turning ideas into functional, lightweight, and pleasant software. I enjoy working from core logic architecture down to the visual details that make an interface intuitive.
+            </p>
+            <p>
+              My focus is on building <span class="text-zinc-200 font-medium">modern web applications</span>, <span class="text-zinc-200 font-medium">desktop utilities</span>, and automations that solve everyday problems — always with clean code, solid practices, and continuous improvement.
+            </p>
+
+            <div class="grid grid-cols-1 gap-3 pt-4 sm:grid-cols-3">
+              <div class="rounded-xl border border-white/[0.07] bg-base-900/70 p-4">
+                <p class="font-mono text-xs text-purple-400">Focus</p>
+                <p class="mt-1 text-sm font-medium text-white">Product &amp; Clean UX</p>
+              </div>
+              <div class="rounded-xl border border-white/[0.07] bg-base-900/70 p-4">
+                <p class="font-mono text-xs text-purple-400">Ecosystem</p>
+                <p class="mt-1 text-sm font-medium text-white">Web &amp; Desktop Apps</p>
+              </div>
+              <div class="rounded-xl border border-white/[0.07] bg-base-900/70 p-4">
+                <p class="font-mono text-xs text-purple-400">Mindset</p>
+                <p class="mt-1 text-sm font-medium text-white">Simplicity &amp; Precision</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal border-b border-white/[0.05] py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-5 sm:px-8">
+        <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-purple-400">02 // Selected Work</p>
+            <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-white sm:text-3xl">Projects</h2>
+          </div>
+          <a href="https://github.com/Neves627?tab=repositories" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-400 transition hover:text-purple-300">
+            <span>View all repositories on GitHub</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <article class="portfolio-card flex flex-col justify-between rounded-2xl p-6 sm:p-7">
+            <div>
+              <div class="mb-4 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl border border-purple-500/30 bg-violet-950/60 text-sm text-purple-300">
+                    ⚡
+                  </span>
+                  <h3 class="text-lg font-semibold text-white">Marvel Browser</h3>
+                </div>
+                <span class="rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-purple-300">
+                  Web App
+                </span>
+              </div>
+
+              <p class="text-sm leading-relaxed text-zinc-400">
+                Interactive web application to search and explore characters, comics, and details from the Marvel universe with dynamic API integration and a responsive interface.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-white/[0.06]">
+              <div class="mb-4 flex flex-wrap gap-2 font-mono text-[11px] text-zinc-400">
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">JavaScript</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">REST API</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">HTML5</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">CSS3</span>
+              </div>
+
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="https://github.com/Neves627/Marvel_browser" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 text-purple-400 transition hover:text-purple-300">
+                  <span>Source Code</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card flex flex-col justify-between rounded-2xl p-6 sm:p-7">
+            <div>
+              <div class="mb-4 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl border border-purple-500/30 bg-violet-950/60 text-sm text-purple-300">
+                    ✦
+                  </span>
+                  <h3 class="text-lg font-semibold text-white">NoteBlock</h3>
+                </div>
+                <span class="rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-purple-300">
+                  Desktop App
+                </span>
+              </div>
+
+              <p class="text-sm leading-relaxed text-zinc-400">
+                Lightweight Windows desktop application focused on quick notes and styled alarms, featuring local persistence and automatic updates via GitHub Releases.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-white/[0.06]">
+              <div class="mb-4 flex flex-wrap gap-2 font-mono text-[11px] text-zinc-400">
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">Electron</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">JavaScript</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">HTML/CSS</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">electron-updater</span>
+              </div>
+
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="https://github.com/Neves627/NoteBlock" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 text-purple-400 transition hover:text-purple-300">
+                  <span>Source Code</span>
+                  <span>↗</span>
+                </a>
+                <a href="https://github.com/Neves627/NoteBlock/releases" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 text-zinc-300 transition hover:text-white">
+                  <span>Releases</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card flex flex-col justify-between rounded-2xl border-dashed border-purple-500/25 p-6 sm:p-7">
+            <div>
+              <div class="mb-4 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] font-mono text-xs text-zinc-300">
+                    03
+                  </span>
+                  <h3 class="text-lg font-semibold text-white">Project 03</h3>
+                </div>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 font-mono text-[11px] text-zinc-400">
+                  Coming Soon
+                </span>
+              </div>
+
+              <p class="text-sm leading-relaxed text-zinc-400">
+                Reserved slot for the next portfolio project. Edit this card with the project name, stack tags, and repository link whenever it is ready.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-white/[0.06]">
+              <div class="mb-4 flex flex-wrap gap-2 font-mono text-[11px] text-zinc-400">
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">Tech 1</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">Tech 2</span>
+              </div>
+
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="https://github.com/Neves627" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 text-purple-400 transition hover:text-purple-300">
+                  <span>View on GitHub</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card flex flex-col justify-between rounded-2xl border-dashed border-purple-500/25 p-6 sm:p-7">
+            <div>
+              <div class="mb-4 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] font-mono text-xs text-zinc-300">
+                    04
+                  </span>
+                  <h3 class="text-lg font-semibold text-white">Project 04</h3>
+                </div>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 font-mono text-[11px] text-zinc-400">
+                  Coming Soon
+                </span>
+              </div>
+
+              <p class="text-sm leading-relaxed text-zinc-400">
+                Reserved slot for another project or technical experiment. Update this card or duplicate any block above to expand the grid.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-white/[0.06]">
+              <div class="mb-4 flex flex-wrap gap-2 font-mono text-[11px] text-zinc-400">
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">Tech 1</span>
+                <span class="rounded-md bg-white/[0.04] px-2 py-1">Tech 2</span>
+              </div>
+
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="https://github.com/Neves627" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 text-purple-400 transition hover:text-purple-300">
+                  <span>View on GitHub</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="reveal border-b border-white/[0.05] py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-5 sm:px-8">
+        <div class="mb-10">
+          <p class="font-mono text-xs uppercase tracking-widest text-purple-400">03 // Capabilities</p>
+          <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-white sm:text-3xl">Technologies &amp; Tools</h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <div class="portfolio-card rounded-2xl p-6">
+            <h3 class="font-mono text-xs uppercase tracking-wider text-purple-400">Languages &amp; Web</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-zinc-200">
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">JavaScript (ES6+)</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">TypeScript</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">HTML5</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">CSS3 / Tailwind</span>
+            </div>
+          </div>
+
+          <div class="portfolio-card rounded-2xl p-6">
+            <h3 class="font-mono text-xs uppercase tracking-wider text-purple-400">Desktop &amp; Runtime</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-zinc-200">
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">Electron</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">Node.js</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">REST APIs</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">Electron Builder</span>
+            </div>
+          </div>
+
+          <div class="portfolio-card rounded-2xl p-6">
+            <h3 class="font-mono text-xs uppercase tracking-wider text-purple-400">Workflow &amp; Deploy</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-zinc-200">
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">Git</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">GitHub &amp; Pages</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">VS Code</span>
+              <span class="rounded-lg border border-white/10 bg-base-950/70 px-3 py-1.5">CI/CD Releases</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="reveal py-20">
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
+      <div class="portfolio-card flex flex-col items-start justify-between gap-6 rounded-2xl p-7 sm:flex-row sm:items-center sm:p-9">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-purple-400">04 // Contact</p>
+          <h2 class="mt-1.5 text-2xl font-bold text-white">Let&apos;s talk?</h2>
+          <p class="mt-2 max-w-md text-sm text-zinc-400">
+            Open to new ideas, collaborations, or feedback on my projects. Copy my email or reach out on social links.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            id="copyEmailBtn"
+            data-email="diogofernandoneves@gmail.com"
+            class="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-violet-600/25 transition hover:bg-purple-500 active:scale-[0.98]">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span id="copyBtnLabel">Copy Email</span>
+          </button>
+
+          <a href="https://github.com/Neves627" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-base-950/70 px-4 py-2.5 text-sm font-medium text-zinc-200 transition hover:border-purple-500/45 hover:text-white">
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/diogo-neves-link/" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-base-950/70 px-4 py-2.5 text-sm font-medium text-zinc-200 transition hover:border-purple-500/45 hover:text-white">
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col items-center justify-between gap-3 text-xs text-zinc-500 sm:flex-row">
+        <p>© <span id="currentYear"></span> Diogo Neves. All rights reserved.</p>
+        <p class="font-mono text-zinc-600">neves627.github.io</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastNotification"
+       role="status"
+       aria-live="polite"
+       class="pointer-events-none fixed bottom-5 right-5 z-50 flex translate-y-4 items-center gap-2.5 rounded-xl border border-purple-500/40 bg-base-850/95 px-4 py-3 text-xs font-medium text-white opacity-0 shadow-2xl shadow-purple-950/60 backdrop-blur-md transition-all duration-300">
+    <span class="flex h-5 w-5 items-center justify-center rounded-full bg-violet-600 text-[11px] text-white">✓</span>
+    <span id="toastMessage">Email copied!</span>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      const copyEmailBtn = document.getElementById('copyEmailBtn');
+      const copyBtnLabel = document.getElementById('copyBtnLabel');
+      const toast = document.getElementById('toastNotification');
+      const toastMessage = document.getElementById('toastMessage');
+      let feedbackTimeout;
+
+      function triggerCopyFeedback(email) {
+        copyBtnLabel.textContent = 'Email copied!';
+        toastMessage.textContent = `Email copied: ${email}`;
+        toast.classList.remove('opacity-0', 'translate-y-4');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        clearTimeout(feedbackTimeout);
+        feedbackTimeout = setTimeout(() => {
+          copyBtnLabel.textContent = 'Copy Email';
+          toast.classList.add('opacity-0', 'translate-y-4');
+          toast.classList.remove('opacity-100', 'translate-y-0');
+        }, 2800);
+      }
+
+      copyEmailBtn.addEventListener('click', () => {
+        const email = copyEmailBtn.getAttribute('data-email');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).catch(() => {});
+        }
+        triggerCopyFeedback(email);
+      });
+    });
+  </script>
+</body>
+</html>
